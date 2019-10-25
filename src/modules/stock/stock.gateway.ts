@@ -2,7 +2,7 @@ import { WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { StockService } from './stock.service';
 import { Stock } from './stock.entity';
 
-@WebSocketGateway({ namespace: '/api/' })
+@WebSocketGateway({ namespace: '/api' })
 export class StockGateway {
   @WebSocketServer() server: any;
 
