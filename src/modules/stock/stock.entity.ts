@@ -67,12 +67,12 @@ export class Stock {
     await getRepository(StockHistory).save(model);
   }
 
-  preserveCurrentPrice() {
-    this.price_old = this.price;
-  }
-
   @AfterLoad()
   stockName() {
     this.name = this.product.title;
+  }
+
+  preserveCurrentPrice() {
+    this.price_old = this.price;
   }
 }

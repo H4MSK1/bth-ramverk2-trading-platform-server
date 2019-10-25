@@ -28,10 +28,11 @@ export class AuthService {
 
   async signToken(user: User): Promise<string> {
     const payload = {
+      userId: user.userId,
       first_name: user.first_name,
       last_name: user.last_name,
       email: user.email,
-      userId: user.userId,
+      createdAt: user.createdAt,
     };
 
     return await this.jwtService.signAsync(payload);
