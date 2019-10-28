@@ -1,7 +1,9 @@
 import { Controller, Get } from '@nestjs/common';
 import { SeedService } from './seed.service';
 import { StockGateway } from '../stock/stock.gateway';
+import { ApiUseTags } from '@nestjs/swagger';
 
+@ApiUseTags('seed')
 @Controller('seed')
 export class SeedController {
   constructor(

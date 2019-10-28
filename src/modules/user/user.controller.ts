@@ -3,7 +3,10 @@ import { UserService } from './user.service';
 import { User } from './user.decorator';
 import { AuthGuard } from '@nestjs/passport';
 import { roundNumber } from '../../components/utils';
+import { ApiUseTags, ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiUseTags('user')
+@ApiBearerAuth()
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}

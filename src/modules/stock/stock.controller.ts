@@ -4,7 +4,10 @@ import { AuthGuard } from '@nestjs/passport';
 import { BuyOrSellStockDTO } from './stock.dto';
 import { User } from '../user/user.decorator';
 import { StockGateway } from './stock.gateway';
+import { ApiUseTags, ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiUseTags('stock')
+@ApiBearerAuth()
 @Controller('stock')
 export class StockController {
   constructor(
