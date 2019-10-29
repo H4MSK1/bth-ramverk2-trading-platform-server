@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Stock } from './stock.entity';
-import { CreateStockDTO, UpdateStockDTO, BuyOrSellStockDTO } from './stock.dto';
+import { CreateStockDTO, BuyOrSellStockDTO } from './stock.dto';
 import { ProductService } from '../product/product.service';
 import { UserService } from '../user/user.service';
 
@@ -31,14 +31,6 @@ export class StockService {
     model.price = model.product.price;
 
     return this.repository.save(model);
-  }
-
-  async update(stockData: UpdateStockDTO): Promise<Stock> {
-    const model = await this.findById(stockData.id);
-    model.preserveCurrentPrice();
-    const updatedStock = Object.assign(model, stockData);
-
-    return this.repository.save(updatedStock);
   }
 
   async buyStocks(stockData: BuyOrSellStockDTO, userId: string) {
