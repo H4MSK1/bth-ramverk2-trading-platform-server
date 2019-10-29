@@ -8,6 +8,7 @@ import { TransformInterceptor } from '../../components/transform.interceptor';
 import { ProductModule } from '../product/product.module';
 import { StockModule } from '../stock/stock.module';
 import { SeedModule } from '../seed/seed.module';
+import { ScheduleModule } from '../schedule/schedule.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { SeedModule } from '../seed/seed.module';
     ProductModule,
     StockModule,
     SeedModule,
+    ScheduleModule,
   ],
   controllers: [AppController],
   providers: [

@@ -26,9 +26,7 @@ export class AuthController {
   @Post('/register')
   async register(@Body() params: CreateUserDTO) {
     try {
-      await this.userService.create(params);
-      const { email: username, password } = params;
-      return this.authService.authenticate({ username, password });
+      return await this.userService.create(params);
     } catch {
       throw new UnprocessableEntityException();
     }

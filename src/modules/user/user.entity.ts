@@ -36,7 +36,6 @@ export class User {
   createdAt: Date;
 
   @OneToMany(type => UserStock, stock => stock.user, {
-    eager: true,
     cascade: true,
   })
   stocks: UserStock[];

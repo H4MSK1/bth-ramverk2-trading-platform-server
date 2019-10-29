@@ -26,7 +26,9 @@ export class UserService {
   }
 
   async findByUserId(userId: string): Promise<User> {
-    const result: User = await this.repository.findOne(userId);
+    const result: User = await this.repository.findOne(userId, {
+      relations: ['stocks'],
+    });
     return omit(result, 'password');
   }
 
@@ -52,7 +54,6 @@ export class UserService {
 
   async buyUserStocks(stock: Stock, userId: string, amount: number) {
     const user = await this.findByUserId(userId);
-    console.log('TCL: UserService -> buyUserStocks -> stock', stock);
     const totalPrice = stock.price * amount;
     if (totalPrice > user.balance) {
       throw new UnprocessableEntityException('Insufficient funds');

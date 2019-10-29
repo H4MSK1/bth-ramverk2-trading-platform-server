@@ -46,7 +46,7 @@ export class ProductService {
 
     for (let i = 0; i < products.length; i++) {
       const product = products[i];
-      const price = Math.floor(Math.random() * 50) + 5;
+      const price = Math.floor(Math.random() * 15) + 1;
 
       if (Math.random() < 0.5 && product.price > price) {
         product.price -= price;

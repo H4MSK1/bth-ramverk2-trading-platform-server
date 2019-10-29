@@ -12,9 +12,4 @@ export class ProductController {
   async root() {
     return this.productService.findAll();
   }
-
-  @Get('/update')
-  async update() {
-    return this.productService.randomPriceUpdate();
-  }
 }
