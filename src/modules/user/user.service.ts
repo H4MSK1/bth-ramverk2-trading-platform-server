@@ -109,7 +109,7 @@ export class UserService {
     return updatedUser.balance;
   }
 
-  async getCurrentStocksValue(userId: string) {
+  async getCurrentStocksValue(userId: string): Promise<number> {
     let stocksValue: number = 0;
     const user = await this.findByUserId(userId);
 
