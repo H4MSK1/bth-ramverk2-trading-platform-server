@@ -9,5 +9,6 @@ import { StockModule } from '../stock/stock.module';
   imports: [UserModule, ProductModule, StockModule],
   controllers: [SeedController],
   providers: [SeedService],
+  exports: [SeedService],
 })
 export class SeedModule {}
