@@ -52,3 +52,6 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Documentation
+Swagger OpenAPI docs available at route */api-docs*
+
